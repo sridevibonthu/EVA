@@ -92,18 +92,5 @@
 * As expected the cyclic LR worked better.
 * Can increase dropouts more to further bump up the challenge. We are happy to be below 8000. But we can try to push the model further.
 
-Bonus Model -- pushing the limits
-File Link
-
-Target
-Less than 7000 parameters
-Less than 15 epochs
-Test with Cyclic LR
-Add small dropout of 5%
-Results
-Number of Parameters = 6202 + 140 non trainable BN params
-Best Train Accuracy = 98.97
-Best Test Accuracy = 99.45
-Analysis
-We pushed the model to achieve target with approx 6000 Parameters
-Drop in accuracy was predicted because of making the training more difficult. But still we met the target.
+## One more trail  -- pushing the limits
+Another model with 6342 parameters is trained and obtained a train accuracy of 98.97 and test accuracy is 99.45. Even though it achieves the target, a drop in train accuracy is observed.
