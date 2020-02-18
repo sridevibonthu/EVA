@@ -1,8 +1,9 @@
 # EVA - Session 5
 
+Completed this assignment as a team. 
+We really enjoyed the way assignment is created. Thank you.
 
-
-## Team Members
+## My Team Members
 1. B Sridevi  - sridevi.b@vishnu.edu.in
 2. Abhinav Dayal - abhinav.dayal@vishnu.edu.in
 3. A. Lakshmana Rao - 18pa1a0511@vishnu.edu.in
