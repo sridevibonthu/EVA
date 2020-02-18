@@ -8,40 +8,40 @@
 3. A. Lakshmana Rao - 18pa1a0511@vishnu.edu.in
 3. Sanjay Varma G - 18pa1a1211@vishnu.edu.in
 
-# First Model 
-===
+## First Model 
 [File Link](https://github.com/sridevibonthu/EVA/blob/master/S5/EVA4_S5_01.ipynb)
 
-## Observation
+### Observation
 * The input is mono and has very simple features. Probably we need not go beyond 16 channels.
 * We can do initial max pooling after we reach receptive field of 5x5
-## Target
-..* Less than 20000 parameters
-..* Less than 15 epochs
-## Results
-..* Number of Parameters = 13,120
-..* Best Train Accuracy = 98.76
-..* Best Test Accuracy = 98.73
-## Analysis
-..* Good model, no overfitting or underfitting
-..* We need to push our model to get better accuracy
+### Target
+* Less than 20000 parameters
+* Less than 15 epochs
+### Results
+* Number of Parameters = 13,120
+* Best Train Accuracy = 98.76
+* Best Test Accuracy = 98.73
+### Analysis
+* Good model, no overfitting or underfitting
+* We need to push our model to get better accuracy
 
 
-# Second Model
-File Link
+## Second Model
+[File Link](https://github.com/sridevibonthu/EVA/blob/master/S5/EVA4_S5_02.ipynb)
 
-Target
-Less than 20000 parameters
-Less than 15 epochs
-Using Batch_norm to improve accuracy
-Results
-Number of Parameters = 13,120 + 180 non trainable BN params
-Best Train Accuracy = 99.825
-Best Test Accuracy = 99.24
-Analysis
-Better accuracy but model is overfitting.
-We need to regularize
-We also have to reduce parameters to meet the assignment goal
+### Target
+* Less than 20000 parameters
+* Less than 15 epochs
+* Using Batch_norm to improve accuracy
+### Results
+* Number of Parameters = 13,120 + 180 non trainable BN params
+* Best Train Accuracy = 99.825
+* Best Test Accuracy = 99.24
+### Analysis
+* Better accuracy but model is overfitting.
+* We need to regularize
+* We also have to reduce parameters to meet the assignment goal
+
 Third Model
 File Link
 
