@@ -13,8 +13,8 @@
 [File Link](https://github.com/sridevibonthu/EVA/blob/master/S5/EVA4_S5_01.ipynb)
 
 ## Observation
-..* The input is mono and has very simple features. Probably we need not go beyond 16 channels.
-..* We can do initial max pooling after we reach receptive field of 5x5
+* The input is mono and has very simple features. Probably we need not go beyond 16 channels.
+* We can do initial max pooling after we reach receptive field of 5x5
 ## Target
 ..* Less than 20000 parameters
 ..* Less than 15 epochs
