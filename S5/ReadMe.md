@@ -6,7 +6,7 @@
 1. B Sridevi  - sridevi.b@vishnu.edu.in
 2. Abhinav Dayal - abhinav.dayal@vishnu.edu.in
 3. A. Lakshmana Rao - 18pa1a0511@vishnu.edu.in
-3. Sanjay Varma G - 18pa1a1211@vishnu.edu.in
+4. Gadiraju Sanjay Varma - 18pa1a1211@vishnu.edu.in
 
 ## First Model 
 [File Link](https://github.com/sridevibonthu/EVA/blob/master/S5/EVA4_S5_01.ipynb)
