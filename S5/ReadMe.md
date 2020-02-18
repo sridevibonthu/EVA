@@ -42,53 +42,56 @@
 * We need to regularize
 * We also have to reduce parameters to meet the assignment goal
 
-Third Model
-File Link
+## Third Model
+[File Link](https://github.com/sridevibonthu/EVA/blob/master/S5/EVA4_S5_03.ipynb)
 
-Target
-Less than 10000 parameters
-Less than 15 epochs
-Add Image Augmentation (Rotation)
-Add GAP to reduce number of parameters
-Restructure the architecture to meet receptive field requirement
-Results
-Number of Parameters = 9034 + 140 non trainable BN params
-Best Train Accuracy = 99.128
-Best Test Accuracy = 99.44
-Analysis
-As thought, model is no longer overfitting. Test accuracy is always above train accuracy
-There is lot of room to improve train accuracy still and some of it will get transferred to test accuracy.
-we can even try to reduce number of parameters and make the model more challenging.
-Fourth Model
-File Link
+### Target
+* Less than 10000 parameters
+* Less than 15 epochs
+* Add Image Augmentation (Rotation)
+* Add GAP to reduce number of parameters
+* Restructure the architecture to meet receptive field requirement
+### Results
+* Number of Parameters = 9034 + 140 non-trainable BN parameters
+* Best Train Accuracy = 99.128
+* Best Test Accuracy = 99.44
+### Analysis
+* As thought, model is no longer overfitting. Test accuracy is always above train accuracy
+* There is lot of room to improve train accuracy still and some of it will get transferred to test accuracy.
+* we can even try to reduce number of parameters and make the model more challenging.
 
-Target
-Less than 10000 parameters
-Less than 15 epochs
-Add LR Scheduler with a step LR a gamma of 0.5 after every 5 steps
-Results
-Number of Parameters = 9034 + 140 non trainable BN params
-Best Train Accuracy = 99.21
-Best Test Accuracy = 99.55
-Analysis
-We bumped up the Training accuracy that reflected well in test accuracy
-Next we shall try to further reduce number of parameters, try dropouts (although the model suggests there is no need to but because this is one of the assignment requirments we are trying it). However Adding Dropout will make the model more challenging and give more room to improve the test accuracy.
-We shall try some more LR scheduler like cyclic LR. We will use mak learnng rate of 0.1 (10 times more than what we used in stepLR)
-Fifth Model
-File Link
+## Fourth Model
+[File Link](https://github.com/sridevibonthu/EVA/blob/master/S5/EVA4_S5_04.ipynb)
 
-Target
-Less than 8000 parameters
-Less than 15 epochs
-Test with Cyclic LR
-Add small dropout of 4%
-Results
-Number of Parameters = 7618 + 140 non trainable BN params
-Best Train Accuracy = 99.18
-Best Test Accuracy = 99.63
-Analysis
-As expected the cyclic LR worked better.
-Can increase dropouts more to further bump up the challenge. We are happy to be below 8000. But we can try to push the model further.
+### Target
+* Less than 10000 parameters
+* Less than 15 epochs
+* Add LR Scheduler with a step LR a gamma of 0.5 after every 5 steps
+### Results
+* Number of Parameters = 9034 + 140 non trainable BN params
+* Best Train Accuracy = 99.21
+* Best Test Accuracy = 99.55
+### Analysis
+* We bumped up the Training accuracy that reflected well in test accuracy
+* Next we shall try to further reduce number of parameters, try dropouts (although the model suggests there is no need to but because this is one of the assignment requirments we are trying it). However Adding Dropout will make the model more challenging and give more room to improve the test accuracy.
+* We shall try some more LR scheduler like cyclic LR. We will use minimum learnng rate of 0.1 (10 times more than what we used in stepLR)
+
+## Fifth Model
+[File Link](https://github.com/sridevibonthu/EVA/blob/master/S5/EVA4_S5_05.ipynb)
+
+### Target
+* Less than 8000 parameters
+* Less than 15 epochs
+* Test with Cyclic LR
+* Add small dropout of 4%
+### Results
+* Number of Parameters = 7618 + 140 non trainable BN params
+* Best Train Accuracy = 99.18
+* Best Test Accuracy = 99.63
+### Analysis
+* As expected the cyclic LR worked better.
+* Can increase dropouts more to further bump up the challenge. We are happy to be below 8000. But we can try to push the model further.
+
 Bonus Model -- pushing the limits
 File Link
 
