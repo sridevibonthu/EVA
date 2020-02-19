@@ -94,4 +94,5 @@ We really enjoyed the way assignment is created. Thank you.
 * Can increase dropouts more to further bump up the challenge. We are happy to be below 8000. But we can try to push the model further.
 
 ## One more trail  -- pushing the limits
+[File Link](https://github.com/sridevibonthu/EVA/blob/master/S5/EVA04_S5_06.ipynb)
 Another model with 6342 parameters is trained and obtained a train accuracy of 98.97 and test accuracy is 99.45. Even though it achieves the target, a drop in train accuracy is observed.
