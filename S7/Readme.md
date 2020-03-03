@@ -9,7 +9,7 @@ We worked as a team.
 
 We did all the required things:
 
-1. We started with 400K odd parameters with 1 dilated conv in parallel and two depth separated conv. Got 80+ accuracy in 5th Epoch [link](https://github.com/sridevibonthu/EVA4/blob/master/S7/EVA04_S7_400K.ipynb)
+1. We started with 400K odd parameters with 1 dilated conv in parallel and two depth separated conv. Got 80+ accuracy in 5th Epoch [link](https://github.com/sridevibonthu/EVA/blob/master/S7/EVA04_S7_400K.ipynb)
 2. Reduced to 120K params and got 80+ accuracy in 8 epochs. [link](https://github.com/sridevibonthu/EVA4/blob/master/S7/EVA04_S7_120K.ipynb)
 3. Replaced all conv to depthwaise separable reducing to 40K params and got 80+ accuracy in 18 Epochs. [link](https://github.com/sridevibonthu/EVA4/blob/master/S7/EVA04_S7_40K.ipynb)
 4. Moved dialated conv to main layer in first conv block. Removed depthwise except in last conv block. 100K params got 80+ accuracy in 9th Epoch. [link](https://github.com/sridevibonthu/EVA4/blob/master/S7/EVA04_S7_100K.ipynb)
