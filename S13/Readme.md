@@ -15,7 +15,8 @@ OpenCV Yolo: [code](https://github.com/sridevibonthu/EVA/blob/master/S13/EVA4_S1
 
 
 ## Part - B
-YoloV3 Simplified for training on Colab with custom dataset for one class (**GUN**)
+Training Custom Dataset on Colab for YoloV3
+Dataset contains 600 images of one class (**GUN**) (500 training + 100 testing) 
 
 _A Collage of Training images_
 ![image](https://github.com/sridevibonthu/YoloV3/blob/master/train_batch0.png)
@@ -45,7 +46,10 @@ data
 2. For one class example our custom.data is [here](https://github.com/sridevibonthu/YoloV3/blob/master/data/customdata/custom.data). We used 500 images for training and 100 images for testng.
 2. downloaded the weights (yolov3-spp-ultralytics.pt) from the original ![source](https://drive.google.com/open?id=1LezFG5g3BCW6iYaV89B2i64cqEUZD7e0) and placed in Google Drive. 
 3. Created a weights folder under YoloV3 to store weights
-4. Trained for 300 epochs after configuring. (log)[https://github.com/sridevibonthu/YoloV3/blob/master/results.txt)
+4. Trained for 300 epochs after configuring. [log](https://github.com/sridevibonthu/YoloV3/blob/master/results.txt)
+5. Took a video which contains our class. Extracted images from video using ffmpeg and infered on these images using detect.py. converted the inferred images to a video and uploaded in YouTube.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eXjxy_7W7GQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
