@@ -1,5 +1,17 @@
 # Assignment 13 - YoloV3
 ________
+
+## Part - A
+OpenCV Yolo: ![code]()
+**Task** : 
+* Run the code.
+* Take an image of myself, holding another object which is there in COCO data set.
+* Run this image through the code above. 
+**Annotated Image**
+[!image]()
+
+
+## Part - B
 YoloV3 Simplified for training on Colab with custom dataset for one class (**GUN**)
 
 _A Collage of Training images_
