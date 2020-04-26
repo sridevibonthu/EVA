@@ -49,7 +49,7 @@ data
 4. Trained for 300 epochs after configuring. [log](https://github.com/sridevibonthu/YoloV3/blob/master/results.txt)
 5. Took a video which contains our class. Extracted images from video using ffmpeg and infered on these images using detect.py. converted the inferred images to a video and uploaded in YouTube.
 
-[![Alt text](video)](https://www.youtube.com/embed/eXjxy_7W7GQ)
+![YouTube video](https://www.youtube.com/embed/eXjxy_7W7GQ)
 
 
 
