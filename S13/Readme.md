@@ -10,6 +10,7 @@ OpenCV Yolo: [code](https://github.com/sridevibonthu/EVA/blob/master/S13/EVA4_S1
 * Run this image through the code above. 
 
 **Annotated Image**
+
 ![image](https://github.com/sridevibonthu/EVA/blob/master/S13/annotated_sridevi.png)
 
 
