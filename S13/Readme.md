@@ -2,13 +2,13 @@
 ________
 
 ## Part - A
-OpenCV Yolo: ![code]()
+OpenCV Yolo: ![code](https://github.com/sridevibonthu/EVA/blob/master/S13/EVA4_S13_Task1_OPENCV_YOLO.ipynb)
 **Task** : 
 * Run the code.
 * Take an image of myself, holding another object which is there in COCO data set.
 * Run this image through the code above. 
 **Annotated Image**
-[!image]()
+[!image](https://github.com/sridevibonthu/EVA/blob/master/S13/annotated_sridevi.png)
 
 
 ## Part - B
