@@ -92,7 +92,7 @@ Ideally we could have calculated mean/stdev in our generator, but we **FORGOT** 
 * [Data generator](https://github.com/abhinavdayal/EVA4/blob/master/S14/Final_Data_Creation.ipynb)
 * [Statistics Calculator](https://github.com/abhinavdayal/EVA4/blob/master/S14/MeanandSD.ipynb)
 
-## Placement with Segmentation Experiment
+# Real-time adaptive Placement with Segmentation Experiment
 
 We initially thought that we should create realistic images, and our cows should be properly scaled and not flying in sky. To this end we spent almost one week. Later it was clarifid in last weeks session that we should not do that. Moreover we are supposed to have fixed 100 bg images. In this experiment we are randomly cropping a square region of BG instead.
 
@@ -103,44 +103,53 @@ Still, the process was nice and we would like to document the same.
 
 ![segmentation key](segmentationkey.png)
 
+Our initial BG images with degmentation and depths can be found [here](https://drive.google.com/open?id=1ZLqkr_oY4xGK-Vhdvjr_BLGVEewcEsi3).
+
 * We decided to use terrain, road and sidewalk regions only to place the foreground (cow).
 * we also calculated the last row where sky was present. We rejected all ground pixels above the sky
 * as a precaution we also hard limited sky to 50% of the height of image.
-* We observed that our background images are all different in terms of camera parameters but they were all perspective projections from a person on ground view mostly. So we manually wrote a scaling factor (*ADAPTIVE SCALING*) for each background suggesting a linear interpolation from a large scale at bottom to a smaller scale at horizon. By scale we mean the fraction of area of background that a foreground image must occupy.
-* That is it! Our initial algorithm was simple:
+* We observed that our background images are all different in terms of camera parameters but they were all perspective projections from a person on ground view mostly. So we manually wrote a scaling factor (*ADAPTIVE SCALING*) for each background suggesting a linear interpolation from a large scale at bottom to a smaller scale at horizon. By scale we mean the fraction of area of background that a foreground image must occupy. [Here](https://drive.google.com/open?id=1ILVEydlrXIJ0H6q74fedP7PfUi2X5tXD) is the scale file.
+* That is it! Our initial algorithm was simple
+
+Our final code can be found [here](https://github.com/abhinavdayal/EVA4/blob/master/S14/Segmentation_Based_Data_Creation.ipynb).
 
 ```
 1. Repeat 400K times
   1.1 Pick a bg image at random from 100 images
   1.2 pick a fg image at random from 100 images
-  1.3 We initially did not precrop bg images. We took liberty to crop 448x448 maximal region of original image.
+  1.3 crop 224x224 maximal region of original BG image.
   1.4 flip cropped image with probability of 0.5
   1.5 randomly pick center and based upon center Y coordinate interpolate the scale.
   1.6 resize fg and flip it with probability of 0.5
   1.7 place fg over bg
   1.8 save fg-bg and mask image
-  1.9 add 448x448 image for depth calcualtion to numpy array
-  
-2 calcualte depth as before
+  1.9 from corresponding depth image of BG crop and fglip same region. 
+  1.10 calcaulate depth value of foregroud pixels based on mask, scale and location and superimpose fg depth on bg cropped depth
+  1.11 save fg-bg depth image
 ```
 
 We however did not generate images and only ran few experiments.
 
-### Promising Results
+## Depth Hack (paused implemetation as strategy changed)
+Rather than running depth for every generated image whiich would have taken time, we created depth for each BG image. And since our placement of Foreground kind of intersects with the idea of depth, we plnned to calculate depth based on placement coordinates and scale and from the same cropped (and flipped) region of the depth image corresponsing to that of the selected background, we wanted to superimpose calculate foreground depth using the foreground mask. This would have given us data very fast
 
-#### segmentation examples
+**DOUBLE BONUS**: We thought that this way we never have to generate all the 400K images, but we can generate any amount of images on the fly with a custom generator as above code to generate the images.
+
+## Promising Results
+
+### segmentation examples
 
 ![segmentations](segmentation.jpg)
 
-#### Generated image samples
+### Generated image samples
 
 ![promising results](good.png)
 
-### Results that were not good
+## Results that were not good
 
 ![not good results](notgood.png)
 
-### Bonus: Occlusion detection
+## Bonus: Occlusion detection
 We tried to detect occlusion by taking pixels from segmentation of person or vehicle that has its start from after the Y coordinate of fg placement. The third and fourth image below describe how it worked. But the accuracy was not as good in all cases as the segmentation map was noisy.
 
 ![bonus](attempt.jpg)
