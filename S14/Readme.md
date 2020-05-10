@@ -89,8 +89,8 @@ Ideally we could have calculated mean/stdev in our generator, but we **FORGOT** 
 
 ## Links to ipynb files
 
-* [Data generator](https://github.com/abhinavdayal/EVA4/blob/master/S14/Final_Data_Creation.ipynb)
-* [Statistics Calculator](https://github.com/abhinavdayal/EVA4/blob/master/S14/MeanandSD.ipynb)
+* [Data generator](https://github.com/sridevibonthu/EVA/blob/master/S14/Final_Data_Creation.ipynb)
+* [Statistics Calculator](https://github.com/sridevibonthu/EVA/blob/master/S14/Data_Statistics.ipynb)
 
 # Real-time adaptive Placement with Segmentation Experiment
 
