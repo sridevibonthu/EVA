@@ -226,7 +226,21 @@ Estimated Total Size (MB): 9493.08
 * **Mask prediction**
 ![Mask Prediction](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/predmask42000.jpg)
 
-* At the end of every epoch, a tensor is created with the eight images of fgbg, input mask, predicated mask, input depth, estimated depth in testing for the first batch.  ![Epoch-10](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/Epoch%2010.png)
+* At the end of every epoch, a tensor is created with the eight images of fgbg, input mask, predicated mask, input depth, estimated depth in testing for the first batch.  
+
+```
+            if batch_idx == 0:
+              inp = fgbg.detach().cpu()
+              orimp = mask.detach().cpu()
+              mp = mask_pred.detach().cpu()
+              oridp = depth.detach().cpu()
+              dp = depth_pred.detach().cpu()
+              print("First batch in testing fgbg, (mask, predicted mask), (depth, predicted depth)")
+              show(inp[:8,:,:,:], normalize=True)
+              mdinp = torch.cat([orimp[:8,:,:,:], mp[:8,:,:,:], oridp[:8,:,:,:], dp[:8,:,:,:]],dim=0)
+              show(mdinp)
+```
+![Epoch-10](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/Epoch%2010.png)
 
 * Model pridictions on **Unseen** data. ![predications on unseen data](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/ModelPredictionsOnUnseenData.jpeg)
 
@@ -301,6 +315,7 @@ print(len(train), len(test))
 
 * Tried **Resnet18** Architecture on masks and depths separately with 11 Million parameters. then made that model to output 2 X 1 X W X H as two outcomes. This is a bad idea and the results are almost similar and not good.
 
+![outcomes](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/Resnet1.jpeg)
 **Outcome:**
 1. Plan different model architecture 
 
@@ -312,7 +327,7 @@ Use of Maxunpooling has given
 ![maxunpooling](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/saving%20model.JPG)
 
 Some more bad results which made me try different loss functions are
-|![one](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/encdec1.png) |![two](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/encdec2.png) |![three](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/encdec3.png) |
+|![one](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/encdec1.png) |![two](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/encdec2.png) |![three](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/encdec3.png) | ![Four](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/encoder.jpeg) |
 
 **My Model:**
 
@@ -413,10 +428,32 @@ class Encoder(Net):
 ```
 ![SavingModel](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/saving%20model.JPG)
 
+2. Measured time taken for data loading, per epoch how much time loss, model, plotting is taking. By reducing data augmentations, i reduced time taken for data loading. As there is not much difference between test and train losses, i decided to reduce augmentaions. Done intermediate plotting once per 3000 batches.
+```
+      n = self.stats.get_batches()
+      if (n+1)%500 == 0:
+        self.tb.add_scalar('loss/train', loss.item(), n)
+        self.tb.add_scalar('Leaning Rate', self.stats.batch_lr[-1])
+      
+      if (n+1) % 3000 == 0:
+        grid = torchvision.utils.make_grid(mask_pred.detach().cpu(), nrow=8, normalize=False)
+        self.tb.add_image('imagesmask', grid, n)
+        grid = torchvision.utils.make_grid(depth_pred.detach().cpu(), nrow=8, normalize=False)
+        self.tb.add_image('imagesdepth', grid, n)
+      
+      
+        saveresults(fgbg.detach().cpu(), "./plots/fgbg"+str(n+1)+".jpg", normalize=True)
+        saveresults(mask.detach().cpu(), "./plots/orimask"+str(n+1)+".jpg")
+        saveresults(depth.detach().cpu(), "./plots/oridepth"+str(n+1)+".jpg")
+        saveresults(mask_pred.detach().cpu(), "./plots/predmask"+str(n+1)+".jpg")
+        saveresults(depth_pred.detach().cpu(), "./plots/preddepth"+str(n+1)+".jpg")
+```
+3. Planned to calculate accuracy, by finding difference between the input and predictions. But i have not implemented it.
+
 My Journey started from **a simple model** with 3 Million parameters with BCE, MSE loss and ended at an **encoder-decoder model** with 3 million parameters which employs L1 Loss + SSIM.
 
 
-Thanks to Rohan Sravan for his great mentorship and all my team who helped from week 1 to 14.
+Thanks to **Rohan Sravan** for his great mentorship and all my team who helped from week 1 to 14.
 
 
 
