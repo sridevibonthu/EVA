@@ -308,6 +308,12 @@ print(len(train), len(test))
 
 * Followed Unet paper and implemented an **Encoder-Decoder** kind of architecure. Here the challenge to me is how to write decoder. I used Maxunpooling, 1X1 convolutions, transposed convolutions alone, transposed convolutions and interpolation with bilinear mode. Among all Maxunpooling has given worse results. I had two decoders here. Trained this network with few loss functions. L1, MSE, BCE combinations were tested by me. Next i used SSIM. No loss function alone worked for me.
 
+Use of Maxunpooling has given 
+![maxunpooling](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/saving%20model.JPG)
+
+Some more bad results which made me try different loss functions are
+|![one](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/encdec1.png) |![two](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/encdec2.png) |![three](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/encdec3.png) |
+
 **My Model:**
 
 ```
