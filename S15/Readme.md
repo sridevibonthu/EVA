@@ -23,7 +23,7 @@ print(data[39999])
 ```
 - the **prepareData** method takes in a folder which contains four folders and returns records which contains paths to the images. Every record has 4 paths, first two paths correspond to input (background and fgbg) and last two corresponds to targets(mask and depth)
 
-- another utility **displayData** is written to print the images of the given record with the help of the paths. these utilities are available [here]().
+- another utility **displayData** is written to print the images of the given record with the help of the paths. these utilities are available [here](https://github.com/sridevibonthu/EVALibrary/blob/master/EVA4/utils.py).
 ```
 displayData(data, 14909)  #routine to display the respective record
 ```
@@ -35,7 +35,7 @@ displayData(data, 14909)  #routine to display the respective record
 
 The key point, I observed here is .... **"This assignment is an endless assignment."** I am keeping on getting ideas to change model structure, usage of loss function, schedulers, optimizer.
 
-To predict mask and estimate depth, I have trained and tested several models, tried many loss functions and improved it step by step. Before I convey all those pains, I want to show one of my models outcome for which I got some satisfaction. The Notebook, I have submitted : Link  
+To predict mask and estimate depth, I have trained and tested several models, tried many loss functions and improved it step by step. Before I convey all those pains, I want to show one of my models outcome for which I got some satisfaction. [The Notebook, I have submitted](https://github.com/sridevibonthu/EVA/blob/master/S15/Final_Model_with_all_data_L1%2C_SSIM%2C_128X128_10_epochs_with_augmentions_good.ipynb)  
 
 * The model is trained on 400K records with 70%-30% train-test split.
 * With a batch size of 64, I have 4375 batches in my training data.
