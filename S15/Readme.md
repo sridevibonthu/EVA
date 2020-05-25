@@ -316,6 +316,7 @@ print(len(train), len(test))
 * Tried **Resnet18** Architecture on masks and depths separately with 11 Million parameters. then made that model to output 2 X 1 X W X H as two outcomes. This is a bad idea and the results are almost similar and not good.
 
 ![outcomes](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/Resnet1.jpeg)
+
 **Outcome:**
 1. Plan different model architecture 
 
