@@ -1,11 +1,11 @@
 # prediction of the depth and mask for the foreground object. 
 
-Given an image with foreground objects and background image, predict the depth map as well as a mask for the foreground object. This is an open problem, and here I will present, how it is solved. A custom Dataset is created my our Team in the last assignment. The approach followed to curate the custom dataset is presented [here](https://github.com/sridevibonthu/EVA/blob/master/S14/Readme.md).
+**Description:** Given an image with foreground objects and background image, predict the depth map as well as a mask for the foreground object. This is an open problem, and here I will present, how it is solved. A custom Dataset is created in the last assignment. The approach followed to curate the custom dataset is presented [here](https://github.com/sridevibonthu/EVA/blob/master/S14/Readme.md).
 
 ## 1. Data Preparation
 
-- The training data is curated on our own as part of previous assignment. Readme, Source Code
-- Statistics on data were also calculated as part of previous assignemnt. Source Code
+- The training data is curated on our own as part of previous assignment. [Readme](https://github.com/sridevibonthu/EVA/blob/master/S14/Readme.md), [Source Code](https://github.com/sridevibonthu/EVA/blob/master/S14/Final_Data_Creation.ipynb)
+- Statistics on data were also calculated as part of previous assignemnt. [Source Code](https://github.com/sridevibonthu/EVA/blob/master/S14/Data_Statistics.ipynb)
 - 100 background and 100 foreground images were used to generate 400K images of fgbg, mask and depth images. The selected foreground images are stray cows, calfs.
 - The generated images are of size 224X224
 - the 100 background images were placed in one folder and 400K fgbg, mask, depth images in their respective folders. 
