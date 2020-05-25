@@ -456,6 +456,14 @@ class Encoder(Net):
 
 My Journey started from **a simple model** with 3 Million parameters with BCE, MSE loss and ended at an **encoder-decoder model** with 3 million parameters which employs L1 Loss + SSIM.
 
+### Outcomes
+
+* Learnt how to integrate tensorboard to Google Colab
+* Designed model for foreground and depth estimation
+* Learnt how to write Encoder-Decoder models.
+* Able to apply several loss functions.
+* Read few papers which are related to loss functions, model architectures.
+
 
 Thanks to **Rohan Sravan** for his great mentorship and all my team who helped from week 1 to 14.
 
