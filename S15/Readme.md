@@ -246,6 +246,9 @@ Estimated Total Size (MB): 9493.08
 
 * The train loss is recorded for every 500 batches. ![train/loss](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/train%20loss.JPG)
 
+* Learning Rate 
+![LR](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/train%20loss.JPG)
+
 ## 3. Code Structure
 
 - The library created by us from the past few assignments is used with few modifications. 
