@@ -217,11 +217,20 @@ Estimated Total Size (MB): 9493.08
 ```
 
 * The model is trained for 10 epochs, i.e., 43750 batches. For every 2000 batches, I have saved the predictions in the [google drive](https://drive.google.com/drive/u/0/folders/1-3CZgEYGlepHIZCMhGZ80uRzrDcXH3p4) and also thrown to tensorboard. 
+
 * **At 42000 step : Input** [FgonBg](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/fgbg42000.jpg), [Mask](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/orimask42000.jpg), [Depth](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/oridepth42000.jpg)
-* Depth estimation ![Depth Estimation](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/preddepth42000.jpg)
-* Mask prediction ![Mask Prediction](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/predmask42000.jpg)
+
+* **Depth estimation**
+![Depth Estimation](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/preddepth42000.jpg)
+
+* **Mask prediction**
+![Mask Prediction](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/predmask42000.jpg)
+
 * At the end of every epoch, a tensor is created with the eight images of fgbg, input mask, predicated mask, input depth, estimated depth in testing for the first batch.  ![Epoch-10](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/Epoch%2010.png)
+
 * Model pridictions on **Unseen** data. ![predications on unseen data](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/ModelPredictionsOnUnseenData.jpeg)
+
+* The train loss is recorded for every 500 batches. ![train/loss](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/train%20loss.JPG)
 
 ## 3. Code Structure
 
@@ -388,6 +397,15 @@ class Encoder(Net):
 
 * **Next** - I have some more time. I experimented with MSSSIM Loss. It took time for me, as it used to vanish after few batches. After fixing this problem, MSSSIM Loss works more fine masks than depths. Number of parameters are further reduced to 3 Million by introducing dialated convoltions in both upsampling and downsampling. 
 
+* Few othe measures I have take while doing this work
+1. The best model is saved whenever a validation loss better than best loss so far is obtained to come out of the restrictions of Google colab limited time with the help of the following code block
+```
+    if self.epochs == 1 or self.best_test_loss > self.avg_test_loss[-1]:
+      print(f'Validation loss decreased ({self.best_test_loss:.6f} --> {self.avg_test_loss[-1]:.6f}).  Saving model ...')
+      torch.save(self.model.state_dict(), f"{self.path}/{self.model.name}.pt")
+      self.best_test_loss = self.avg_test_loss[-1]
+```
+![SavingModel](https://github.com/sridevibonthu/EVA/blob/master/S15/Images/saving%20model.JPG)
 
 My Journey started from **a simple model** with 3 Million parameters with BCE, MSE loss and ended at an **encoder-decoder model** with 3 million parameters which employs L1 Loss + SSIM.
 
