@@ -365,7 +365,7 @@ class Encoder(Net):
 
 ## Improved Model with SSIM Loss
 
-* Used dialated convolutions in one of the convolution layer of downsampling block to reduce number of parameters. My model landed at 8 Million parameters. with the help of this paper, i combined ssim and another loss function (L1, MSE, BCE) and tested. I got best results when SSIM is combined with L1Loss. **(0.84 * SSIM + 0.16 * L1)**. I have also given more weight to Mask loss in the overall loss calculation.
+* Used dialated convolutions in one of the convolution layer of downsampling block to reduce number of parameters. My model landed at 8 Million parameters. with the help of the paper titled [Loss Functions for image Restoration with Neural Networks](https://research.nvidia.com/sites/default/files/pubs/2017-03_Loss-Functions-for/NN_ImgProc.pdf), i combined ssim and another loss function (L1, MSE, BCE) and tested. I got best results when SSIM is combined with L1Loss. **(0.84 * SSIM + 0.16 * L1)**. I have also given more weight to Mask loss in the overall loss calculation.
 
 ```
             # Calculate loss
@@ -389,7 +389,7 @@ class Encoder(Net):
 * **Next** - I have some more time. I experimented with MSSSIM Loss. It took time for me, as it used to vanish after few batches. After fixing this problem, MSSSIM Loss works more fine masks than depths. Number of parameters are further reduced to 3 Million by introducing dialated convoltions in both upsampling and downsampling. 
 
 
-My Journey started from a simple model with 3 Million parameters with BCE, MSE loss and ended at a encoder-decoder model with 3 million parameters which employes L1+SSIM.
+My Journey started from **a simple model** with 3 Million parameters with BCE, MSE loss and ended at an **encoder-decoder model** with 3 million parameters which employs L1 Loss + SSIM.
 
 
 Thanks to Rohan Sravan for his great mentorship and all my team who helped from week 1 to 14.
