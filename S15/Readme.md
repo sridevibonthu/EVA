@@ -41,7 +41,7 @@ To predict mask and estimate depth, I have trained and tested several models, tr
 * With a batch size of 64, I have 4375 batches in my training data.
 * The key features of the model are
 1. My approach leverages encoder-decoder type architecture with skipped connections. but the change is it has two decoders
-2. No.of parameters are reduced by employing deconvolution in downsampling. Parameters - 5 M
+2. No.of parameters are reduced by employing deconvolution in downsampling. Parameters - 5 M [model](https://github.com/sridevibonthu/EVALibrary/blob/master/EVA4/eva4models/lightmodel.py)
 3. The parameter summary
 ```
 model.summary(input_size=([(3,128,128),(3,128,128)]))
@@ -418,9 +418,9 @@ class Encoder(Net):
 **Outcome:** 
 1. Things are going on smoothly and planned to submit.   (Hurray! Deadline is extended)
 
-* **Next Model** : As I understood that Mask can be predicted with less receptive field, I reduced depth of mask decoder and now number of parameters of my model are 5 M. Results are pretty awesome here. I used SGD optimizer, One Cycle Policy to run this. I have submitted this model.
+* **[Next Model(https://github.com/sridevibonthu/EVALibrary/blob/master/EVA4/eva4models/lightmodel.py)** : As I understood that Mask can be predicted with less receptive field, I reduced depth of mask decoder and now number of parameters of my model are 5 M. Results are pretty awesome here. I used SGD optimizer, One Cycle Policy to run this. I have submitted this model.
 
-* **Next** - I have some more time. I experimented with MSSSIM Loss. It took time for me, as it used to vanish after few batches. After fixing this problem, MSSSIM Loss works more fine masks than depths. Number of parameters are further reduced to 3 Million by introducing dialated convoltions in both upsampling and downsampling. 
+* **[Next](https://github.com/sridevibonthu/EVALibrary/blob/master/EVA4/eva4models/lightermodel.py)** - I have some more time. I experimented with MSSSIM Loss. It took time for me, as it used to vanish after few batches. After fixing this problem, MSSSIM Loss works more fine masks than depths. Number of parameters are further reduced to 3 Million by introducing dialated convoltions in both upsampling and downsampling. 
 
 * Few othe measures I have take while doing this work
 1. The best model is saved whenever a validation loss better than best loss so far is obtained to come out of the restrictions of Google colab limited time with the help of the following code block
